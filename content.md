@@ -1,30 +1,46 @@
 :::header
-# 最悪のPDCAサイクル
+# The Worst PDCA Cycle
 
 ### Plan · Delay · Cancel · Apologize
 
-[サイクル図](#diagram) · [各フェーズ](#phases) · [言い訳辞典](#excuses)
+[Cycle diagram](#diagram) · [Phase details](#phases) · [Excuse dictionary](#excuses)
 :::
 
-PDCAサイクルとは本来、**Plan（計画）→ Do（実行）→ Check（評価）→ Act（改善）** を繰り返す継続的改善のフレームワークである。
+PDCA is a widely used continuous improvement framework: **Plan → Do → Check → Act**.
 
-しかし現実には、多くのプロジェクトが*別の*サイクルを採用している。
+In practice, however, many projects quietly adopt a *different* cycle.
 
 ---
 
-## サイクルの全体像 {#diagram}
+## The Big Picture {#diagram}
 
 ```mermaid
-flowchart LR
-  P[Plan] --> D[Delay] --> C[Cancel] --> A[Apologize] --> P
+flowchart TB
+    subgraph top[ ]
+        P[Plan]
+    end
+    subgraph mid[ ]
+        direction LR
+        A[Apologize] ~~~ D[Delay]
+    end
+    subgraph bot[ ]
+        C[Cancel]
+    end
+    P --> D
+    D --> C
+    C --> A
+    A --> P
+    style top fill:transparent,stroke:transparent
+    style mid fill:transparent,stroke:transparent
+    style bot fill:transparent,stroke:transparent
 ```
 
-このサイクルは**自己強化型**である。一度回り始めると自然に加速する。
-Do（実行）フェーズが存在しないため、理論上は永遠に回り続けることができる。
+This cycle is **self-reinforcing**. Once it starts, it naturally accelerates.
+There is no Do phase — in theory, it can spin forever.
 
 ---
 
-## 各フェーズの詳細 {#phases}
+## Phase Details {#phases}
 
 ~ |     Phase 1     |     Phase 2     |
 ~ | :---            | :---            |
@@ -33,29 +49,29 @@ Do（実行）フェーズが存在しないため、理論上は永遠に回り
 :::warp plan
 ### Plan
 
-- 壮大な構想を描く
-- スライド資料を20枚作る
-- キックオフ会議を設定する
-- 関係者を全員巻き込む
-- 完成形のビジョンを熱く語る
+- Draft an ambitious vision
+- Create a 20-slide deck
+- Schedule a kickoff meeting
+- Loop in all stakeholders
+- Passionately describe the finished product
 
-**所要時間:** 2〜3週間
-**エネルギー:** 最高潮
-**達成感:** すでに完成した気分
+**Time required:** 2–3 weeks
+**Energy level:** Peak
+**Sense of accomplishment:** Already feels done
 :::
 
 :::warp delay
 ### Delay
 
-- 着手しようとするが「まだ早い」と判断
-- 情報収集という名の現実逃避
-- 関連しない別タスクを片付ける
-- 完璧な条件が揃うのを待つ
-- 「来週から本気出す」宣言
+- Try to start but decide "not yet"
+- Call it research; actually avoid doing the work
+- Clear unrelated tasks instead
+- Wait for perfect conditions
+- Declare "I'll get serious next week"
 
-**所要時間:** 無限
-**エネルギー:** 徐々に消耗
-**達成感:** ゼロ
+**Time required:** Infinite
+**Energy level:** Slowly draining
+**Sense of accomplishment:** Zero
 :::
 
 ~ |     Phase 3     |     Phase 4     |
@@ -65,66 +81,68 @@ Do（実行）フェーズが存在しないため、理論上は永遠に回り
 :::warp cancel
 ### Cancel
 
-- 状況が変わったと気づく
-- 当初の計画の無理さに気づく
-- より良いアイデアを思いつく
-- 優先度が下がったと判断する
-- 静かにフェードアウト
+- Realize the situation has changed
+- Notice the plan was unrealistic from the start
+- Come up with a better idea
+- Decide the priority has dropped
+- Quietly fade out
 
-**所要時間:** 5分
-**エネルギー:** 安堵感
-**達成感:** 解放感
+**Time required:** 5 minutes
+**Energy level:** Relief
+**Sense of accomplishment:** Liberation
 :::
 
 :::warp apologize
 ### Apologize
 
-- 関係者全員に丁寧なメールを送る
-- 誠意ある謝罪文を時間をかけて書く
-- 次回はうまくやると約束する
-- 新しい計画を立て始める
+- Send a courteous email to all stakeholders
+- Spend time crafting a sincere apology
+- Promise to do better next time
+- Start drawing up a new plan
 
-**所要時間:** 1時間
-**エネルギー:** 回復傾向
-**達成感:** これで一区切り
+**Time required:** 1 hour
+**Energy level:** Recovering
+**Sense of accomplishment:** Closure
 :::
 
 ---
 
-## 言い訳辞典 {#excuses}
+## Excuse Dictionary {#excuses}
 
-| フェーズ | よく使われる言い訳 | 実際のところ |
+| Phase | Common excuse | Reality |
 | :--- | :--- | :--- |
-| Delay | 「情報が揃ってから動きます」 | 始めるのが怖い |
-| Delay | 「タイミングを見極めています」 | ただ待っている |
-| Delay | 「関係者と調整中です」 | 誰にも連絡していない |
-| Cancel | 「状況が変わりました」 | 飽きた |
-| Cancel | 「より良い方法を見つけました」 | やりたくなくなった |
-| Cancel | 「リソースの都合で」 | 最初からなかった |
-| Apologize | 「次回はもっとうまくやります」 | 次もこうなる |
+| Delay | "I'll move once the information is in place." | Too scared to start |
+| Delay | "I'm gauging the right timing." | Just waiting |
+| Delay | "I'm coordinating with stakeholders." | Haven't contacted anyone |
+| Cancel | "The situation has changed." | Lost interest |
+| Cancel | "I found a better approach." | No longer want to do it |
+| Cancel | "Due to resource constraints." | Never had them to begin with |
+| Apologize | "I'll do better next time." | This will happen again |
 
-:::details 本家PDCAとの比較
+:::details Comparison with the real PDCA
 
-| 項目 | 本家PDCA | 最悪のPDCA |
+| Item | Real PDCA | Worst PDCA |
 | :--- | :---: | :---: |
-| 実行フェーズ | あり | **なし** |
-| 改善フェーズ | あり | Apologizeで代替 |
-| サイクルの完了 | する | しない |
-| 生産物 | 成果 | 謝罪メール |
-| 習得難易度 | 中 | 誰でもできる |
+| Execution phase | Exists | **None** |
+| Improvement phase | Exists | Replaced by Apologize |
+| Cycle completion | Yes | No |
+| Output | Results | Apology email |
+| Learning curve | Medium | Anyone can do it |
+
 :::
 
-:::details このサイクルが根絶できない理由
+:::details Why this cycle can't be eradicated
 
-最悪のPDCAサイクルには、ひとつだけ優れた特性がある。**回すのが非常に簡単**なのだ。
+The Worst PDCA has exactly one superior property: **it is extremely easy to run**.
 
-- Do（実行）がないため、実行コストがゼロ
-- Check（評価）がないため、失敗の記録が残らない
-- 謝罪さえすれば関係がリセットされる
-- 計画フェーズは楽しいので何度でも繰り返せる
+- No Do phase → zero execution cost
+- No Check phase → no record of failure remains
+- A sincere apology resets all relationships
+- The Plan phase is fun, so it can repeat indefinitely
 
-心理学的には「計画錯誤」と「現状維持バイアス」の合わせ技である。
-なお、本記事の執筆も3回キャンセルされた後に完成した。
+Psychologically, it is a combination of the "planning fallacy" and "status quo bias."
+This article itself was cancelled three times before it was completed.
+
 :::
 
 ---
@@ -132,5 +150,5 @@ Do（実行）フェーズが存在しないため、理論上は永遠に回り
 :::footer
 Built with [lobster.js](https://hacknock.github.io/lobsterjs/) · Diagrams by [Mermaid](https://mermaid.js.org/)
 
-本記事はフィクションです。実在の個人・プロジェクト・組織とは一切関係ありません（あるかもしれません）。
+*This article is fictional. Any resemblance to real persons, projects, or organizations is purely coincidental (or not).*
 :::
