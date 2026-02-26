@@ -15,24 +15,11 @@ In practice, however, many projects quietly adopt a *different* cycle.
 ## The Big Picture {#diagram}
 
 ```mermaid
-flowchart TB
-    subgraph top[ ]
-        P[Plan]
-    end
-    subgraph mid[ ]
-        direction LR
-        A[Apologize] ~~~ D[Delay]
-    end
-    subgraph bot[ ]
-        C[Cancel]
-    end
-    P --> D
-    D --> C
-    C --> A
-    A --> P
-    style top fill:transparent,stroke:transparent
-    style mid fill:transparent,stroke:transparent
-    style bot fill:transparent,stroke:transparent
+flowchart LR
+P(Plan) --> D(Delay)
+D --> C(Cancel)
+C --> A(Apologize)
+A --> P
 ```
 
 This cycle is **self-reinforcing**. Once it starts, it naturally accelerates.
