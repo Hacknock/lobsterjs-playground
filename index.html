@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Metric vs Imperial</title>
+    <title>最悪のPDCAサイクル</title>
     <!-- lobster.js Pastel theme -->
     <link rel="stylesheet" href="https://hacknock.github.io/lobsterjs/themes/pastel.css" />
   </head>
@@ -11,7 +11,21 @@
     <div id="content"></div>
     <script type="module">
       import { loadMarkdown } from "https://hacknock.github.io/lobsterjs/lobster.js";
-      loadMarkdown("./content.md", document.getElementById("content"));
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+      mermaid.initialize({ startOnLoad: false });
+
+      await loadMarkdown("./content.md", document.getElementById("content"));
+
+      document.querySelectorAll("code.language-mermaid").forEach(code => {
+        const wrapper = code.closest(".lbs-code-block");
+        const div = document.createElement("div");
+        div.className = "mermaid";
+        div.textContent = code.textContent;
+        (wrapper ?? code).replaceWith(div);
+      });
+
+      await mermaid.run();
     </script>
   </body>
 </html>
