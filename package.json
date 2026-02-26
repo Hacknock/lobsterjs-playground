@@ -2,9 +2,9 @@
   "name": "lobster-starter",
   "private": true,
   "scripts": {
-    "start": "vite"
+    "start": "http-server -p 3000"
   },
   "devDependencies": {
-    "vite": "^6.0.0"
+    "http-server": "^14.0.0"
   }
 }
